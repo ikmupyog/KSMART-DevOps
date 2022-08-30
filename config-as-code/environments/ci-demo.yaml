@@ -1,11 +1,11 @@
 global:
-  domain: <Domain> ## Add your Domain Name Eg: site.mydomain.com
+  domain: ikmcicd.lsgkerala.gov.in ## Add your Domain Name Eg: site.mydomain.com
   setup: fullsetup
   
 cluster-configs:
   namespaces:
-    create: false
-    values: [ jenkins, cert-manager ]
+    create: true
+    values: [ jenkins ]
   root-ingress:
     namespace: jenkins
     serviceName: jenkins
@@ -17,30 +17,27 @@ jenkins:
   persistence:
     enabled: true
     aws:
-      - volumeId: "vol-060d0b69accaf9312" # Add volume id for jenkins-home
+      - volumeId: "vol-03536a7b098be845a" # Add volume id for jenkins-home
         zone: ap-south-1b # Add respective availability_zones 
 
   oauth:
     enabled: true
     acl:
       admin:
-        - egovernments*micro-service-devops # Add github team. Members of this team gets admin access on jenkins
+        - ikmupyog*devops # Add github team. Members of this team gets admin access on jenkins
       user:                                 # Add github team. Members of this team gets login access on jenkins
-        - egovernments*micro-service-dev
-        - egovernments*micro-service-qa
-        - egovernments*micro-service-uat
+        - ikmupyog*dev
+        - ikmupyog*qa
        
 
   jobBuilder:    # Add jobBuilder repo's, add repo's ssh link
     repos: >-
-      'git@github.com:egovernments/core-services.git','git@github.com:egovernments/business-services.git'
+      'git@github.com:ikmupyog/KSMART.git'
   deploymentJobs:  # Setup deploymentJobs ACL 
     - name: dev    # deployment job name
-      acl: [egovernments*micro-service-dev] # GitHub team name, Members of the team get access to deployment job
+      acl: [ikmupyog*dev] # GitHub team name, Members of the team get access to deployment job
     - name: qa
-      acl: [egovernments*micro-service-qa] 
-    - name: uat
-      acl: [egovernments*micro-service-uat] 
+      acl: [ikmupyog*qa] 
     
        
   master:
@@ -68,16 +65,16 @@ nginx-ingress:
 cert-manager:
   namespace: jenkins
   clusterIssuer:
-    stage:
-      acme:
-        email: "<mail_id>"     # Add mail id
+      stage:
+        acme:
+          email: "vipinmadhu.ikm@kerala.gov.in"     # Add mail id
 
 cluster-autoscaler:
   namespace: jenkins
   cloudProvider: aws  
   awsRegion: ap-south-1
   autoDiscovery:
-    clusterName: <clusterName> # Add cluster name
+    clusterName: arn:aws:eks:ap-south-1:049212052750:cluster/ikm-cicd # Add cluster name
     tags:
-    - kubernetes.io/cluster/<clusterName> # Add cluster name
+    - kubernetes.io/cluster/arn:aws:eks:ap-south-1:049212052750:cluster/ikm-cicd # Add cluster name
 

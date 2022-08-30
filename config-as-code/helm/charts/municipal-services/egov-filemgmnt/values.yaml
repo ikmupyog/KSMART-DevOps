@@ -1,0 +1,31 @@
+# Common Labels
+labels:
+  app: "egov-filemgmnt"
+  group: "rainmaker"
+
+# Ingress Configs
+ingress:
+  enabled: true
+  context: "egov-filemgmnt-services"
+
+# Init Containers Configs
+# initContainers:
+#   dbMigration:
+#     enabled: true
+#     schemaTable: "filemgmnt_services_schema"
+#     image:
+#       repository: "filemgmnt-services-db"
+
+# Container Configs
+image:
+  repository: "egov-filemgmnt"
+replicas: "1"
+healthChecks:
+  enabled: false
+  livenessProbePath: "/egov-filemgmnt-services/health"
+  readinessProbePath: "/egov-filemgmnt-services/health"
+
+# Additional Container Envs
+env: |
+  - name: SERVER_PORT
+    value: "8080"

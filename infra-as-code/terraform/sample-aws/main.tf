@@ -16,10 +16,10 @@ module "db" {
   storage_type                  = "gp2"
   storage_gb                    = "100"     ## postgres disk size
   backup_retention_days         = "7"
-  administrator_login           = "${var.db_username}"
+  administrator_login           = "egovdemo"
   administrator_login_password  = "${var.db_password}"
   identifier                    = "${var.cluster_name}-db"
-  db_name                       = "${var.db_name}"
+  db_name                       = "${var.cluster_name}-db"
   environment                   = "${var.cluster_name}"
 }
 
