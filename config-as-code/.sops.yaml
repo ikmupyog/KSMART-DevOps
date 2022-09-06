@@ -1,0 +1,17 @@
+# creation rules are evaluated sequentially, the first match wins
+creation_rules:
+        # upon creation of a file that matches the pattern *dev.yaml,
+        # KMS set A is used
+        # NUGP Internal ------------------------------------------------------------------------------------------------------------- #
+        - path_regex: environments/dev\-secrets\.yaml$
+          #kms: 'arn:aws:kms:ap-south-1:049212052750:key/85cd9ce7-512a-40ee-91b3-eeb676dbbd8c'
+          #gcp_kms: 'projects/digit-egov/locations/asia-south1/keyRings/egov-sops/cryptoKeys/egov-sops-key'
+          pgp: '0547DD32430BB2807D9EDB8782E98E8BFEB148C8' 
+
+        # upon creation of a file that matches the pattern *dev.yaml,
+        # KMS set A is used
+        # NUGP Internal ------------------------------------------------------------------------------------------------------------- #
+        - path_regex: environments/qa\-template\-secrets\.yaml$
+          kms: 'arn:aws:kms:ap-south-1:049212052750:key/85cd9ce7-512a-40ee-91b3-eeb676dbbd8c'
+          #gcp_kms: 'projects/digit-egov/locations/asia-south1/keyRings/egov-sops/cryptoKeys/egov-sops-key'
+          pgp: '0547DD32430BB2807D9EDB8782E98E8BFEB148C8' 

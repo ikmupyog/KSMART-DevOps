@@ -133,7 +133,7 @@ egov-idgen:
   autocreate-new-seq: "true"
 
 egov-notification-sms:
-  sms-provider-url: "https://msdgweb.mgov.gov.in/esms/sendsmsrequest"
+  sms-provider-url: "https://smsgw.sms.gov.in/failsafe/MLink"
   sms.provider.class: "Generic"
   sms.provider.contentType:  "application/x-www-form-urlencoded"
   sms-config-map: "{'User':'$username', 'passwd': '$password', 'sid':'$senderid', 'mobilenumber':'$mobileno', 'message':'$message', 'mtype':'N', 'DR':'N', 'smsservicetype':'singlemsg'}"
