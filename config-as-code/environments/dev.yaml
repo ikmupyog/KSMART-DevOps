@@ -1,7 +1,7 @@
 global:
    domain: ksmart-dev.lsgkerala.gov.in ## Add your Domain Name Eg: site.mydomain.com
    setup: fullsetup
-   containerRegistry: ikmkerala
+   containerRegistry: egovio
    
 cluster-configs:
     namespaces:  ## Set true to create muliple namespaces
@@ -191,6 +191,8 @@ egov-indexer:
       repo: "git@github.com:ikmupyog/ksmart-configs" ### Change this to Your Config Repo
       branch: "DEV"
   egov-indexer-yaml-repo-path: "file:///work-dir/ksmart-configs/configs/egov-indexer/billingservices-indexer.yml,file:///work-dir/ksmart-configs/configs/egov-indexer/collection-indexer.yml,file:///work-dir/ksmart-configs/configs/egov-indexer/egov-telemetry-indexer.yml,file:///work-dir/ksmart-configs/configs/egov-indexer/egov-uploader-indexer.yml,file:///work-dir/ksmart-configs/configs/egov-indexer/error-queue.yml,file:///work-dir/ksmart-configs/configs/egov-indexer/finance-rolloutadotpion-indexer.yml,file:///work-dir/ksmart-configs/configs/egov-indexer/payment-indexer.yml,file:///work-dir/ksmart-configs/configs/egov-indexer/rainmaker-pgr-indexer.yml,file:///work-dir/ksmart-configs/configs/egov-indexer/rainmaker-pt-indexer.yml,file:///work-dir/ksmart-configs/configs/egov-indexer/rainmaker-tl-indexer.yml,file:///work-dir/ksmart-configs/configs/egov-indexer/chatbot-telemetry.yaml,file:///work-dir/ksmart-configs/configs/egov-indexer/rainmaker-birth-indexer.yml,file:///work-dir/ksmart-configs/configs/egov-indexer/rainmaker-death-indexer.yml"
+inbox:
+  service-map : '{"FSM":{"searchPath":"http://fsm.egov:8080/fsm/v1/_search","dataRoot":"fsm","applNosParam":"applicationNos","businessIdProperty":"applicationNo"},"FSM_VEHICLE_TRIP":{"searchPath":"http://vehicle.egov:8080/vehicle/trip/v1/_search","dataRoot":"vehicleTrip","applNosParam":"applicationNos","businessIdProperty":"applicationNo"},"PT.CREATE,PT.UPDATE,PT.MUTATION":{"searchPath":"http://property-services.egov:8080/property-services/property/_search","dataRoot":"Properties","applNosParam":"acknowldgementNumber","businessIdProperty":"acknowldgementNumber","applsStatusParam":"status"},"NewTL,DIRECTRENEWAL,EDITRENEWAL":{"searchPath":"http://tl-services.egov:8080/tl-services/v1/_search","dataRoot":"Licenses","applNosParam":"applicationNumber","businessIdProperty":"applicationNumber","applsStatusParam":"status"},"BPA_LOW,BPA,BPA_OC,BPA_HIGH":{"searchPath":"http://bpa-services.egov:8080/bpa-services/v1/bpa/_search","dataRoot":"BPA","applNosParam":"applicationNo","businessIdProperty":"applicationNo","applsStatusParam":"status"},"ARCHITECT,ENGINEER,STRUCTURALENGINEER,BUILDER,SUPERVISOR,TOWNPLANNER":{"searchPath":"http://tl-services.egov:8080/tl-services/v1/BPAREG/_search","dataRoot":"Licenses","applNosParam":"applicationNumber","businessIdProperty":"applicationNumber","applsStatusParam":"status"},"FIRE_NOC_SRV,FIRE_NOC_OFFLINE,AIRPORT_NOC_OFFLINE,AIRPORT_NOC_SRV":{"searchPath":"http://noc-services.egov:8080/noc-services/v1/noc/_search","dataRoot":"Noc","applNosParam":"applicationNo","businessIdProperty":"applicationNo","applsStatusParam":"status"}}'
 
 egov-persister:
   replicas: 1

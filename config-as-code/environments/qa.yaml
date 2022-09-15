@@ -40,6 +40,8 @@ cluster-configs:
                 spring-jpa-show-sql: "true"
                 timezone: Asia/Kolkata
                 tracer-errors-provideexceptionindetails: "true"
+                egov-bnd-freedownload-tenants: "kl.testing"
+                egov-bnd-live-citizen-tenants: "kl.testing"
 
         egov-service-host: ## Change only if you know the impact
             data:
@@ -92,6 +94,8 @@ cluster-configs:
                 rainmaker-pgr: "http://rainmaker-pgr:8080/"
                 egov-user-chatbot: "http://egov-user-chatbot:8080/"
                 zuul: "http://zuul:8080/"
+                birth-death-services: "http://birth-death-services.egov:8080/"
+                egov-pdf: "http://egov-pdf.egov:8080/"
 
 
 egov-filestore:
@@ -126,6 +130,8 @@ minio:
 
 egov-idgen:
   idformat-from-mdms: "true"
+  java-args: -Dspring.profiles.active=monitoring
+  heap: "-Xmx192m -Xms192m"
   autocreate-new-seq: "true"
 
 egov-notification-sms:
