@@ -163,7 +163,7 @@ grafana:
       enabled: true
       repo: "git@github.com:ikmupyog/ksmart-configs" #REPLACE with your configs repo
       branch: "DEV" #REPLACE with config repo branch name
-  dashboardsFolder: /work-dir/configs/monitoring-dashboards
+  dashboardsFolder: /work-dir/ksmart-configs/configs/monitoring-dashboards
 
 chatbot:
   kafka-topics-partition-count: 3
