@@ -9,12 +9,12 @@ ingress:
   context: "egov-filemgmnt-services"
 
 # Init Containers Configs
-# initContainers:
-#   dbMigration:
-#     enabled: true
-#     schemaTable: "filemgmnt_services_schema"
-#     image:
-#       repository: "filemgmnt-services-db"
+initContainers:
+  dbMigration:
+    enabled: true
+    schemaTable: "filemgmnt_services_schema"
+    image:
+      repository: "egov-filemgmnt-db"
 
 # Container Configs
 image:
