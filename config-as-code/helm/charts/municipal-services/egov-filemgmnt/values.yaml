@@ -100,42 +100,6 @@ env: |
       configMapKeyRef:
         name: egov-config
         key: spring-datasource-tomcat-initialSize
-  - name: SERVER_TOMCAT_MAX_THREADS
-    {{- if index .Values "server-tomcat-max-threads" }} 
-      value: {{ index .Values "server-tomcat-max-threads" | quote }}    
-    {{- else }}        
-      valueFrom:
-        configMapKeyRef:
-          name: egov-config
-          key: server-tomcat-max-threads
-    {{- end }}            
-  - name: SERVER_TOMCAT_MAX_CONNECTIONS
-  {{- if index .Values "server-tomcat-max-connections" }} 
-    value: {{ index .Values "server-tomcat-max-connections" | quote }}    
-  {{- else }}        
-    valueFrom:
-      configMapKeyRef:
-        name: egov-config
-        key: server-tomcat-max-connections
-  {{- end }}                
-  - name: SPRING_DATASOURCE_TOMCAT_MAX_ACTIVE
-  {{- if index .Values "spring-datasource-tomcat-max-active" }}
-    value: {{ index .Values "spring-datasource-tomcat-max-active" | quote }}
-  {{- else }} 
-    valueFrom:
-      configMapKeyRef:
-        name: egov-config
-        key: spring-datasource-tomcat-max-active 
-  {{- end }}       
-  - name: SPRING_DATASOURCE_HIKARI_MAXIMUM-POOL-SIZE
-  {{- if index .Values "spring-datasource-tomcat-max-active" }}
-    value: {{ index .Values "spring-datasource-tomcat-max-active" | quote }}
-  {{- else }}
-    valueFrom:
-      configMapKeyRef:
-        name: egov-config
-        key: spring-datasource-tomcat-max-active 
-  {{- end }}           
   - name: KAFKA_CONFIG_BOOTSTRAP_SERVER_CONFIG
     valueFrom:
       configMapKeyRef:
