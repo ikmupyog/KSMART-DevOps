@@ -14,8 +14,10 @@ cluster-configs:
         egov-config:
             data:
                 db-host: ikm-first-eks-db.c865b3gqkoui.ap-south-1.rds.amazonaws.com
+                db-read-host: ikmdevreaddb.c865b3gqkoui.ap-south-1.rds.amazonaws.com
                 db-name: ikmeksdb
                 db-url: jdbc:postgresql://ikm-first-eks-db.c865b3gqkoui.ap-south-1.rds.amazonaws.com:5432/ikmeksdb
+                db-read-url: jdbc:postgresql://ikmdevreaddb.c865b3gqkoui.ap-south-1.rds.amazonaws.com:5432/ikmeksdb
                 domain: ksmart-dev.lsgkerala.gov.in    
                 egov-services-fqdn-name: https://ksmart-dev.lsgkerala.gov.in
                 egov-state-level-tenant-id: kl
