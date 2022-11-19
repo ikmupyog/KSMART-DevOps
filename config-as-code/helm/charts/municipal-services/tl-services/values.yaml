@@ -160,3 +160,8 @@ env: |
         name: egov-config
         key: tracer-errors-provideexceptionindetails
   {{- end }}
+  - name: SPRING_DATASOURCE_URL
+    valueFrom:
+      configMapKeyRef:
+        name: egov-config
+        key: db-read-url
