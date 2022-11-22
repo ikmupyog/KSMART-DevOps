@@ -190,9 +190,9 @@ chatbot:
 
 xstate-chatbot:
   whatsapp-provider: "ValueFirst"
-  contact-card-whatsapp-number: "+918448098732"
-  contact-card-whatsapp-name: "mSeva Punjab"
-  valuefirst-whatsapp-number: "918448098732"
+  contact-card-whatsapp-number: "+919611900211"
+  contact-card-whatsapp-name: "vipin"
+  valuefirst-whatsapp-number: "919611900211"
   valuefirst-notification-assigned-templateid: "3656031,4156319"
   valuefirst-notification-resolved-templateid: "3656033,4156321"
   valuefirst-notification-rejected-templateid: "3656037,4156323"
