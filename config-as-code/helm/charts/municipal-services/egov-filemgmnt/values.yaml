@@ -6,6 +6,7 @@ labels:
 # Ingress Configs
 ingress:
   enabled: true
+  zuul: true
   context: "filemgmnt"
 
 # Init Containers Configs
@@ -24,6 +25,8 @@ healthChecks:
   enabled: false
   livenessProbePath: "/filemgmnt/health"
   readinessProbePath: "/filemgmnt/health"
+appType: "java-spring"
+
 
 # Additional Container Envs
 env: |
