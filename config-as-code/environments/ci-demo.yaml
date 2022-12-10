@@ -28,6 +28,7 @@ jenkins:
       user:                                 # Add github team. Members of this team gets login access on jenkins
         - ikmupyog*dev
         - ikmupyog*qa
+        - ikmupyog*prod
        
 
   jobBuilder:    # Add jobBuilder repo's, add repo's ssh link
@@ -38,7 +39,8 @@ jenkins:
       acl: [ikmupyog*dev] # GitHub team name, Members of the team get access to deployment job
     - name: qa
       acl: [ikmupyog*qa] 
-    
+    - name: prod
+      acl: [ikmupyog*prod]
        
   master:
     ingress:
