@@ -175,9 +175,9 @@ chatbot:
   kafka-consumer-poll-ms: 10
   kafka-producer-linger-ms: 5
 
-  contact-card-whatsapp-number: "+919611900211" 
+  contact-card-whatsapp-number: "+917428305359" 
   contact-card-whatsapp-name: "KSMART"
-  valuefirst-whatsapp-number: "919611900211"
+  valuefirst-whatsapp-number: "917428305359"
   valuefirst-notification-assigned-templateid: "194781"
   valuefirst-notification-resolved-templateid: "194783"
   valuefirst-notification-rejected-templateid: "194785"
@@ -191,9 +191,9 @@ chatbot:
 
 xstate-chatbot:
   whatsapp-provider: "ValueFirst"
-  contact-card-whatsapp-number: "+919611900211"
+  contact-card-whatsapp-number: "+917428305359"
   contact-card-whatsapp-name: "KSMART"
-  valuefirst-whatsapp-number: "919611900211"
+  valuefirst-whatsapp-number: "917428305359"
   valuefirst-notification-assigned-templateid: "3656031,4156319"
   valuefirst-notification-resolved-templateid: "3656033,4156321"
   valuefirst-notification-rejected-templateid: "3656037,4156323"
