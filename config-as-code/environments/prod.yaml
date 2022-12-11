@@ -1,7 +1,7 @@
 global:
-   domain: ksmart-qa.lsgkerala.gov.in ## Add your Domain Name Eg: site.mydomain.com
+   domain: ksmart.lsgkerala.gov.in ## Add your Domain Name Eg: site.mydomain.com
    setup: fullsetup
-   containerRegistry: ikmkerala
+   containerRegistry: egovio
    
 cluster-configs:
     namespaces:  ## Set true to create muliple namespaces
@@ -16,13 +16,14 @@ cluster-configs:
     configmaps:
         egov-config:
             data:
-                db-host: ikm-firstqa-eks-db.c865b3gqkoui.ap-south-1.rds.amazonaws.com
-                db-name: ikmeksqadb
-                db-url: jdbc:postgresql://ikm-firstqa-eks-db.c865b3gqkoui.ap-south-1.rds.amazonaws.com:5432/ikmeksqadb
-                domain: ksmart-qa.lsgkerala.gov.in    
-                egov-services-fqdn-name: https://ksmart-qa.lsgkerala.gov.in
+                db-host: ikm-eks-prod-db.c865b3gqkoui.ap-south-1.rds.amazonaws.com
+                db-name: ikmeksprod
+                db-url: jdbc:postgresql://ikm-eks-prod-db.c865b3gqkoui.ap-south-1.rds.amazonaws.com:5432/ikmeksprod
+                db-read-url: jdbc:postgresql://ikmprodreaddb.c865b3gqkoui.ap-south-1.rds.amazonaws.com:5432/ikmeksprod
+                domain: ksmart.lsgkerala.gov.in    
+                egov-services-fqdn-name: https://ksmart.lsgkerala.gov.in
                 egov-state-level-tenant-id: kl
-                s3-assets-bucket: ikm-uat-assets
+                s3-assets-bucket: ikm-prod-assets
                 
                  ## Do not Change
                 es-host: "elasticsearch-data-v1.es-cluster"
@@ -106,7 +107,7 @@ egov-filestore:
   aws.s3.url: "https://s3.amazonaws.com"
   is-s3-enabled: "true"
   minio-enabled: false
-  fixed-bucketname: egov-rainmaker-qa # Only for Dev & QA
+  fixed-bucketname: egov-rainmaker-prod # Only for Production
   allowed-file-formats-map: "{jpg:{'image/jpg','image/jpeg'},jpeg:{'image/jpeg','image/jpg'},png:{'image/png'},pdf:{'application/pdf'},odt:{'application/vnd.oasis.opendocument.text'},ods:{'application/vnd.oasis.opendocument.spreadsheet'},docx:{'application/x-tika-msoffice','application/x-tika-ooxml','application/vnd.oasis.opendocument.text','application/msword'},doc:{'application/x-tika-msoffice','application/x-tika-ooxml','application/vnd.oasis.opendocument.text','application/msword'},dxf:{'text/plain','application/dxf','application/octet-stream','image/vnd.dxf','image/vnd.dxf; format=ascii','image/vnd.dxf; format=binary','image/vnd.dxb'},csv:{'text/plain'},txt:{'text/plain'},xlsx:{'application/x-tika-ooxml','application/x-tika-msoffice','application/vnd.ms-excel'},xls:{'application/x-tika-ooxml','application/x-tika-msoffice','application/vnd.ms-excel'}}"
   allowed-file-formats: "jpg,jpeg,png,doc,docx,pdf,odt,ods,text,dxf,xls,xlsx"
   filestore-url-validity: 3600
@@ -157,7 +158,7 @@ oauth2-proxy:
     configFile: |-
       email_domains = [ "*" ]
       github_org = "ikmupyog" #REPLACE it with your GitHub organization name
-      github_team = "devops,qa" #REPLACE it with GitHub team, Member of this teams would have the access on monitoring/tracing/kibana 
+      github_team = "prod" #REPLACE it with GitHub team, Member of this teams would have the access on monitoring/tracing/kibana 
       upstreams = [ "file:///dev/null" ]
 
 grafana:
@@ -165,7 +166,7 @@ grafana:
     gitSync:
       enabled: true
       repo: "git@github.com:ikmupyog/ksmart-configs" #REPLACE with your configs repo
-      branch: "UAT" #REPLACE with config repo branch name
+      branch: "PROD" #REPLACE with config repo branch name
   dashboardsFolder: /work-dir/ksmart-configs/configs/monitoring-dashboards
 
 chatbot:
@@ -196,7 +197,7 @@ egov-mdms-service:
   initContainers:
     gitSync:
       repo: "git@github.com:ikmupyog/ksmart-mdms-data" ### Change this to Your MDMS Repo
-      branch: "UAT"  ### Branch need to be changed as per your env
+      branch: "PROD"  ### Branch need to be changed as per your env
   mdms-folder: "ksmart-mdms-data" 
   masters-config-url: "file:///work-dir/ksmart-mdms-data/master-config.json"
   java-args: -Dspring.profiles.active=monitoring
@@ -207,7 +208,7 @@ egov-indexer:
   initContainers:
     gitSync:
       repo: "git@github.com:ikmupyog/ksmart-configs" ### Change this to Your Config Repo
-      branch: "UAT"
+      branch: "PROD"
   egov-indexer-yaml-repo-path: "file:///work-dir/ksmart-configs/configs/egov-indexer/billingservices-indexer.yml,file:///work-dir/ksmart-configs/configs/egov-indexer/collection-indexer.yml,file:///work-dir/ksmart-configs/configs/egov-indexer/egov-telemetry-indexer.yml,file:///work-dir/ksmart-configs/configs/egov-indexer/egov-uploader-indexer.yml,file:///work-dir/ksmart-configs/configs/egov-indexer/error-queue.yml,file:///work-dir/ksmart-configs/configs/egov-indexer/finance-rolloutadotpion-indexer.yml,file:///work-dir/ksmart-configs/configs/egov-indexer/payment-indexer.yml,file:///work-dir/ksmart-configs/configs/egov-indexer/rainmaker-pgr-indexer.yml,file:///work-dir/ksmart-configs/configs/egov-indexer/rainmaker-pt-indexer.yml,file:///work-dir/ksmart-configs/configs/egov-indexer/rainmaker-tl-indexer.yml,file:///work-dir/ksmart-configs/configs/egov-indexer/chatbot-telemetry.yaml"
 
 
@@ -224,29 +225,29 @@ egov-persister:
   initContainers:
     gitSync:
       repo: "git@github.com:ikmupyog/ksmart-configs" ### Change this to Your Config Repo
-      branch: "UAT" ### Branch need to be changed as per your env
+      branch: "PROD" ### Branch need to be changed as per your env
 
 egov-data-uploader:
   initContainers:
     gitSync:
       repo: "git@github.com:ikmupyog/ksmart-configs" ### Change this to Your Config Repo
-      branch: "UAT" ### Branch need to be changed as per your env
+      branch: "PROD" ### Branch need to be changed as per your env
 
 egov-searcher:
   search-yaml-path: "file:///work-dir/ksmart-configs/configs/egov-searcher/rainmaker-pgr-v2.yml,file:///work-dir/ksmart-configs/configs/egov-searcher/weekly-impact-emailer-searcher.yml,file:///work-dir/ksmart-configs/configs/egov-searcher/PTDemandBasedSearcher.yml,file:///work-dir/ksmart-configs/configs/egov-searcher/bill-genie.yml,file:///work-dir/ksmart-configs/configs/egov-searcher/rainmaker-tl.yml,file:///work-dir/ksmart-configs/configs/egov-searcher/localitySearcher.yml"
   initContainers:
     gitSync:
       repo: "git@github.com:ikmupyog/ksmart-configs"  ### Change this to Your Config Repo
-      branch: "UAT" ### Branch need to be changed as per your env
+      branch: "PROD" ### Branch need to be changed as per your env
 
 egov-custom-consumer:
-  erp-host: "https://cochin-qa.egovernments.org/"
+  erp-host: "https://cochin-prod.egovernments.org/"
 
 digit-ui:
   custom-js-injection: |
     sub_filter.conf: "
       sub_filter  '<head>' '<head>
-      <script src=https://ikm-uat-assets.s3.ap-south-1.amazonaws.com/globalConfigs.js type=text/javascript></script>
+      <script src=https://ikm-prod-assets.s3.ap-south-1.amazonaws.com/globalConfigs.js type=text/javascript></script>
       ';"
 
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
@@ -254,7 +255,7 @@ digit-ui:
 # financials >>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 egf-master:
-  db-url: jdbc:postgresql://ikm-firstqa-eks-db.c865b3gqkoui.ap-south-1.rds.amazonaws.com:5432/ikmeksqadb ## Add db-url
+  db-url: jdbc:postgresql://ikm-eks-prod-db.c865b3gqkoui.ap-south-1.rds.amazonaws.com:5432/ikmeksprod ## Add db-url
   memory_limits: 512Mi
   heap: "-Xmx256m -Xms256m"
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
@@ -292,7 +293,7 @@ nginx-ingress:
         prometheusRule:
           enabled: true
 cert-manager:
-  email: "vipinmadhu.ikm@kerala.gov.in" ## Add email id
+  email: "upyogkerala@kerala.gov.in" ## Add email id
   images:
     - "quay.io/jetstack/cert-manager-controller:v0.10.1"
   namespace: egov
@@ -311,15 +312,15 @@ zuul:
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 collection-receipt-voucher-consumer:
-  jalandhar-erp-host: "https://thiruvananthapuram-qa.egovernments.org/"
-  mohali-erp-host: "https://cochin-qa.egovernments.org/"
-  nayagaon-erp-host: "https://kannur-qa.egovernments.org/"
-  amritsar-erp-host: "https://kozhikode-qa.egovernments.org/"
-  kharar-erp-host: "https://kollam-qa.egovernments.org/"
-  zirakpur-erp-host: "https://thrissur-qa.egovernments.org/"
+  thiruvananthapuram-erp-host: "https://thiruvananthapuram-prod.egovernments.org/"
+  cochin-erp-host: "https://cochin-prod.egovernments.org/"
+  kannur-erp-host: "https://kannur-prod.egovernments.org/"
+  kozhikode-erp-host: "https://kozhikode-prod.egovernments.org/"
+  kollam-erp-host: "https://kollam-prod.egovernments.org/"
+  thrissur-erp-host: "https://thrissur-prod.egovernments.org/"
 
 finance-collections-voucher-consumer:
-  erp-env-name: "qa"
+  erp-env-name: "prod"
   erp-domain-name: "egovernments.org"
 
 employee:
@@ -327,7 +328,7 @@ employee:
     sub_filter.conf: "
       sub_filter  '<head>' '<head>
       <script src=https://s3.ap-south-1.amazonaws.com/egov-telemetry-data/ulb-overrides.js type=text/javascript></script>
-      <script src=https://ikm-uat-assets.s3.ap-south-1.amazonaws.com/globalConfigs.js type=text/javascript></script>
+      <script src=https://ikm-prod-assets.s3.ap-south-1.amazonaws.com/globalConfigs.js type=text/javascript></script>
       ';"
 
 dashboard-analytics:
@@ -335,14 +336,14 @@ dashboard-analytics:
   initContainers:
     gitSync:
       repo: "git@github.com:ikmupyog/ksmart-configs"
-      branch: "UAT"
+      branch: "PROD"
 
 dashboard-ingest:
   config-schema-paths: "file:///work-dir/ksmart-configs/configs/egov-dss-dashboards/dashboard-ingest/*.json"
   initContainers:
     gitSync:
       repo: "git@github.com:ikmupyog/ksmart-configs"
-      branch: "UAT"
+      branch: "PROD"
 
 
 citizen:
@@ -350,7 +351,7 @@ citizen:
     sub_filter.conf: "
       sub_filter  '<head>' '<head>
       <script src=https://s3.ap-south-1.amazonaws.com/egov-telemetry-data/ulb-overrides.js type=text/javascript></script>
-      <script src=https://ikm-uat-assets.s3.ap-south-1.amazonaws.com/globalConfigs.js type=text/javascript></script>
+      <script src=https://ikm-prod-assets.s3.ap-south-1.amazonaws.com/globalConfigs.js type=text/javascript></script>
       ';"
 
 # reportinfra >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -361,7 +362,7 @@ report:
   initContainers:
     gitSync:
       repo: "git@github.com:ikmupyog/ksmart-configs"
-      branch: "UAT"
+      branch: "PROD"
   report-locationsfile-path: "file:///work-dir/ksmart-configs/configs/reports/reportFileLocationsv1.txt"
 
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
@@ -370,7 +371,7 @@ pdf-service:
   initContainers:
     gitSync:
       repo: "git@github.com:ikmupyog/ksmart-configs"  ### Change this to Your Config Repo
-      branch: "UAT"   ### Branch need to be changed as per your env
+      branch: "PROD"   ### Branch need to be changed as per your env
   data-config-urls: "file:///work-dir/ksmart-configs/configs/pdf-service/data-config/tradelicense-receipt.json,file:///work-dir/ksmart-configs/configs/pdf-service/data-config/property-receipt.json,file:///work-dir/ksmart-configs/configs/pdf-service/data-config/property-bill.json,file:///work-dir/ksmart-configs/configs/pdf-service/data-config/tradelicense-bill.json,file:///work-dir/ksmart-configs/configs/pdf-service/data-config/firenoc-receipt.json,file:///work-dir/ksmart-configs/configs/pdf-service/data-config/pt-receipt.json,file:///work-dir/ksmart-configs/configs/pdf-service/data-config/tl-receipt.json,file:///work-dir/ksmart-configs/configs/pdf-service/data-config/consolidatedbill.json,file:///work-dir/ksmart-configs/configs/pdf-service/data-config/consolidatedreceipt.json,file:///work-dir/ksmart-configs/configs/pdf-service/data-config/tlapplication.json,file:///work-dir/ksmart-configs/configs/pdf-service/data-config/passvehicle-certificate.json,file:///work-dir/ksmart-configs/configs/pdf-service/data-config/ws-consolidatedacknowlegment.json,file:///work-dir/ksmart-configs/configs/pdf-service/data-config/ws-consolidatedsewerageconnection.json,file:///work-dir/ksmart-configs/configs/pdf-service/data-config/buildingpermit.json,file:///work-dir/ksmart-configs/configs/pdf-service/data-config/ptmutationcertificate.json,file:///work-dir/ksmart-configs/configs/pdf-service/data-config/tlrenewalcertificate.json,file:///work-dir/ksmart-configs/configs/pdf-service/data-config/bpa-revocation.json,file:///work-dir/ksmart-configs/configs/pdf-service/data-config/buildingpermit-low.json,file:///work-dir/ksmart-configs/configs/pdf-service/data-config/misc-receipt.json,file:///work-dir/ksmart-configs/configs/pdf-service/data-config/ws-applicationwater.json,file:///work-dir/ksmart-configs/configs/pdf-service/data-config/ws-sanctionletter.json,file:///work-dir/ksmart-configs/configs/pdf-service/data-config/ws-estimationnotice.json,file:///work-dir/ksmart-configs/configs/pdf-service/data-config/ws-applicationsewerage.json,file:///work-dir/ksmart-configs/configs/pdf-service/data-config/tlcertificate.json,file:///work-dir/ksmart-configs/configs/pdf-service/data-config/birth-certificate-pdf.json,file:///work-dir/ksmart-configs/configs/pdf-service/data-config/death-certificate.json"
   format-config-urls: "file:///work-dir/ksmart-configs/configs/pdf-service/format-config/tradelicense-receipt.json,file:///work-dir/ksmart-configs/configs/pdf-service/format-config/property-receipt.json,file:///work-dir/ksmart-configs/configs/pdf-service/format-config/property-bill.json,file:///work-dir/ksmart-configs/configs/pdf-service/format-config/tradelicense-bill.json,file:///work-dir/ksmart-configs/configs/pdf-service/format-config/firenoc-receipt.json,file:///work-dir/ksmart-configs/configs/pdf-service/format-config/pt-receipt.json,file:///work-dir/ksmart-configs/configs/pdf-service/format-config/tl-receipt.json,file:///work-dir/ksmart-configs/configs/pdf-service/format-config/consolidatedbill.json,file:///work-dir/ksmart-configs/configs/pdf-service/format-config/consolidatedreceipt.json,file:///work-dir/ksmart-configs/configs/pdf-service/format-config/tlapplication.json,file:///work-dir/ksmart-configs/configs/pdf-service/format-config/passvehicle-certificate.json,file:///work-dir/ksmart-configs/configs/pdf-service/format-config/ws-consolidatedacknowlegment.json,file:///work-dir/ksmart-configs/configs/pdf-service/format-config/ws-consolidatedsewerageconnection.json,file:///work-dir/ksmart-configs/configs/pdf-service/format-config/buildingpermit.json,file:///work-dir/ksmart-configs/configs/pdf-service/format-config/ptmutationcertificate.json,file:///work-dir/ksmart-configs/configs/pdf-service/format-config/tlrenewalcertificate.json,file:///work-dir/ksmart-configs/configs/pdf-service/format-config/bpa-revocation.json,file:///work-dir/ksmart-configs/configs/pdf-service/format-config/buildingpermit-low.json,file:///work-dir/ksmart-configs/configs/pdf-service/format-config/misc-receipt.json,file:///work-dir/ksmart-configs/configs/pdf-service/format-config/ws-applicationwater.json,file:///work-dir/ksmart-configs/configs/pdf-service/format-config/ws-sanctionletter.json,file:///work-dir/ksmart-configs/configs/pdf-service/format-config/ws-estimationnotice.json,file:///work-dir/ksmart-configs/configs/pdf-service/format-config/ws-applicationsewerage.json,file:///work-dir/ksmart-configs/configs/pdf-service/format-config/tlcertificate.json,file:///work-dir/ksmart-configs/configs/pdf-service/format-config/birth-certificate.json,file:///work-dir/ksmart-configs/configs/pdf-service/format-config/death-certificate.json"
 
@@ -380,11 +381,11 @@ kafka-v2:
   persistence:
     enabled: true
     aws:
-      - volumeId: "vol-025416a1bfa4d0cd3"
+      - volumeId: "vol-08ece02be2ce5fae8"
         zone: ap-south-1b
-      - volumeId: "vol-061868463f802e2bd"
+      - volumeId: "vol-09e050a2decc13470"
         zone: ap-south-1b
-      - volumeId: "vol-00027d5b781b6fd56"
+      - volumeId: "vol-061f3f29f80e015e0"
         zone: ap-south-1b
   zookeeperHosts: "zookeeper-v2.zookeeper-cluster:2181/kafka-v2"
 
@@ -443,11 +444,11 @@ zookeeper-v2:
   persistence:
     enabled: true
     aws:
-      - volumeId: "vol-01bd71b1872112346"
+      - volumeId: "vol-05df7c64e3c4739ef"
         zone: ap-south-1b
-      - volumeId: "vol-046febc507c3327d1"
+      - volumeId: "vol-0c13c2da265d2be7e"
         zone: ap-south-1b
-      - volumeId: "vol-022ace74c0ba937b8"
+      - volumeId: "vol-035ba9308cc4d719e"
         zone: ap-south-1b
 
   ## Zookeeper JVM Heap Option
@@ -512,11 +513,11 @@ elasticsearch-data-v1:
   persistence:
     enabled: true
     aws:
-      - volumeId: "vol-06eba293a7e7429ce"
+      - volumeId: "vol-02b2bd1842cb7a47c"
         zone: ap-south-1b
-      - volumeId: "vol-07ff32651418fd6de"
+      - volumeId: "vol-03f3890b72195fa95"
         zone: ap-south-1b
-      - volumeId: "vol-088af835d3e83b714"
+      - volumeId: "vol-0afbba5aff40e6150"
         zone: ap-south-1b
 
   esJavaOpts: "-Xmx1g -Xms1g"
@@ -576,11 +577,11 @@ elasticsearch-master-v1:
   persistence:
     enabled: true
     aws:
-      - volumeId: "vol-054bbae1eb503b03e"
+      - volumeId: "vol-0676b6d150a89a8a9"
         zone: ap-south-1b
-      - volumeId: "vol-0dd5819138165d4f7"
+      - volumeId: "vol-08bacdfcbe5094b1a"
         zone: ap-south-1b
-      - volumeId: "vol-0fba9316fb95b8acc"
+      - volumeId: "vol-08cb977ef12568ccb"
         zone: ap-south-1b
 
   esJavaOpts: "-Xmx448m -Xms448m"
