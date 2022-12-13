@@ -101,7 +101,7 @@ cluster-configs:
                 firenoc-services: "http://firenoc-services:8080/"
                 firenoc-calculator: "http://firenoc-calculator:8080/"
                 noc-services: "http://noc-services.egov:8080/"
-
+                land-services: "http://land-services.egov:8080/"
 
 egov-filestore:
   volume: /opt/eGov/filestore
