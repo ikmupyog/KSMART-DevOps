@@ -98,6 +98,9 @@ cluster-configs:
                 birth-death-services: "http://birth-death-services.egov:8080/"
                 egov-pdf: "http://egov-pdf.egov:8080/"
                 egov-filemgmnt: "http://egov-filemgmnt.egov:8080/"
+                firenoc-services: "http://firenoc-services:8080/"
+                firenoc-calculator: "http://firenoc-calculator:8080/"
+                noc-services: "http://noc-services.egov:8080/"
 
 
 egov-filestore:
