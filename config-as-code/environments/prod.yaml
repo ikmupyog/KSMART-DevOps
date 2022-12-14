@@ -158,7 +158,7 @@ oauth2-proxy:
     configFile: |-
       email_domains = [ "*" ]
       github_org = "ikmupyog" #REPLACE it with your GitHub organization name
-      github_team = "prod" #REPLACE it with GitHub team, Member of this teams would have the access on monitoring/tracing/kibana 
+      github_team = "devops,qa,prod" #REPLACE it with GitHub team, Member of this teams would have the access on monitoring/tracing/kibana 
       upstreams = [ "file:///dev/null" ]
 
 grafana:
