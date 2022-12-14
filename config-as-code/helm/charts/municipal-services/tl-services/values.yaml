@@ -37,6 +37,16 @@ tl-license-num-format: "PB-TL-[cy:yyyy-MM-dd]-[SEQ_EG_PT_LN]"
 tl-userevents-pay-link: "citizen/otpLogin?mobileNo=$mobile&redirectTo=egov-common/pay?consumerCode=$applicationNo&tenantId=$tenantId&businessService=$businessService"
 tl-msg-pay-link: "citizen/withoutAuth/egov-common/pay?consumerCode=$consumercode&tenantId=$tenantId&businessService=$businessservice"
 
+
+resources: |
+  requests:
+    memory: 300Mi
+    cpu: 100m
+  limits:
+    memory: 300Mi
+    cpu: 100m
+
+    
 # Additional Container Envs
 env: |
   - name: EGOV_IDGEN_HOST
