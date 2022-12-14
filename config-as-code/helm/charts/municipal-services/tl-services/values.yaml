@@ -41,12 +41,12 @@ tl-msg-pay-link: "citizen/withoutAuth/egov-common/pay?consumerCode=$consumercode
 resources: |
   requests:
     memory: 300Mi
-    cpu: 100m
+    cpu: 300m
   limits:
     memory: 300Mi
-    cpu: 100m
+    cpu: 700m
 
-    
+
 # Additional Container Envs
 env: |
   - name: EGOV_IDGEN_HOST
