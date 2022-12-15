@@ -17,8 +17,9 @@ jenkins:
   persistence:
     enabled: true
     aws:
-      - volumeId: "vol-03536a7b098be845a" # Add volume id for jenkins-home
+      - volumeId: "vol-01ca356d5c3cd538a" # Add volume id for jenkins-home
         zone: ap-south-1b # Add respective availability_zones 
+    size: "50Gi"
 
   oauth:
     enabled: true
