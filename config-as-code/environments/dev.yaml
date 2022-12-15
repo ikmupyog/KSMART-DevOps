@@ -96,6 +96,8 @@ cluster-configs:
                 egov-user-chatbot: "http://egov-user-chatbot:8080/"
                 zuul: "http://zuul:8080/"
                 birth-death-services: "http://birth-death-services.egov:8080/"
+                birth-services: "http://birth-services.egov:8080/"
+                death-services: "http://death-services.egov:8080/"
                 egov-pdf: "http://egov-pdf.egov:8080/"
                 egov-filemgmnt: "http://egov-filemgmnt.egov:8080/"
                 firenoc-services: "http://firenoc-services:8080/"
