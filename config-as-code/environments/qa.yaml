@@ -19,6 +19,7 @@ cluster-configs:
                 db-host: ikm-firstqa-eks-db.c865b3gqkoui.ap-south-1.rds.amazonaws.com
                 db-name: ikmeksqadb
                 db-url: jdbc:postgresql://ikm-firstqa-eks-db.c865b3gqkoui.ap-south-1.rds.amazonaws.com:5432/ikmeksqadb
+                db-read-url: jdbc:postgresql://ikmqareaddb.c865b3gqkoui.ap-south-1.rds.amazonaws.com:5432/ikmeksdb
                 domain: ksmart-qa.lsgkerala.gov.in    
                 egov-services-fqdn-name: https://ksmart-qa.lsgkerala.gov.in
                 egov-state-level-tenant-id: kl
