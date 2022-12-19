@@ -36,6 +36,15 @@ is-s3-enabled: true
 persistence:
   enabled: false
 
+resources: |
+  requests:
+    memory: 512Mi
+    cpu: 300m
+  limits:
+    memory: 784Mi
+    cpu: 700m
+
+
 # Additional Container Envs
 env: |
   - name: SERVER_PORT

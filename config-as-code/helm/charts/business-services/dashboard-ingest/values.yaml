@@ -27,6 +27,17 @@ java-args: ""
 es-index-name: "dss-collection_v2"
 topic-incoming-collection: "dss-collection-update"
 
+
+
+resources: |
+  requests:
+    memory: 512Mi
+    cpu: 300m
+  limits:
+    memory: 784Mi
+    cpu: 700m
+
+
 # Additional Container Envs
 env: |
   - name: SERVICES_ESINDEXER_HOST

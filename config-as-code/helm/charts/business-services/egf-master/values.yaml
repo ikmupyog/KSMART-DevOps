@@ -26,6 +26,16 @@ tracing-enabled: true
 db-url: "jdbc:postgresql://egov-micro-dev.postgres.database.azure.com:5432/egov_dev_ms?currentSchema=egov_master"
 heap: "-Xmx192m -Xms192m"
 
+
+resources: |
+  requests:
+    memory: 512Mi
+    cpu: 300m
+  limits:
+    memory: 784Mi
+    cpu: 700m
+
+    
 # Additional Container Envs
 env: |
   - name: KAFKA_TOPICS_EGF_MASTERS_VALIDATED_KEY

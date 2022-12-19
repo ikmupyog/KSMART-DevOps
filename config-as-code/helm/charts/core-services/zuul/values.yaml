@@ -52,6 +52,16 @@ eventlog-topic: "zuul-event-log"
 eventlog-urls-whitelist: ""
 home-isolation-chatbot-router-enabled: false
 
+
+resources: |
+  requests:
+    memory: 512Mi
+    cpu: 300m
+  limits:
+    memory: 784Mi
+    cpu: 700m
+
+
 # Additional Container Envs
 env: |
   - name: URL_LISTS

@@ -36,6 +36,15 @@ java-args: "-Dspring.profiles.active=monitoring"
 java-debug: ""
 receiptnumber-servicebased: "false"
 
+resources: |
+  requests:
+    memory: 784Mi
+    cpu: 300m
+  limits:
+    memory: 1024Mi
+    cpu: 700m
+
+
 # Additional Container Envs
 env: |
   - name: SERVER_PORT
