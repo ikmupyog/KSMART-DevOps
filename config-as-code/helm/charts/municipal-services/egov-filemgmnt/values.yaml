@@ -26,7 +26,13 @@ healthChecks:
   livenessProbePath: "/filemgmnt/health"
   readinessProbePath: "/filemgmnt/health"
 
-
+resources: |
+  requests:
+    memory: 512Mi
+    cpu: 300m
+  limits:
+    memory: 784Mi
+    cpu: 700m
 
 # Additional Container Envs
 env: |

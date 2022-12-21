@@ -38,10 +38,10 @@ receiptnumber-servicebased: "false"
 
 resources: |
   requests:
-    memory: 784Mi
+    memory: 512Mi
     cpu: 300m
   limits:
-    memory: 1024Mi
+    memory: 784Mi
     cpu: 700m
 
 
