@@ -194,7 +194,7 @@ env: |
       configMapKeyRef:
         name: egov-pg-service
         key: paygovgatewayurl
-    - name: PAYGOV_REDIRECT_URL
+  - name: PAYGOV_REDIRECT_URL
     valueFrom:
       configMapKeyRef:
         name: egov-pg-service
