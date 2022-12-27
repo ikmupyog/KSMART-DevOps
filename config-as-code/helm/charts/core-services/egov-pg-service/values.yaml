@@ -205,22 +205,22 @@ env: |
     valueFrom:
       secretKeyRef:
         name: egov-pg-service
-        key: paygov-merchant-id
+        key: paygovmerchantid
   - name: PAYGOV_MERCHANT_SECRET_KEY
     valueFrom:
       secretKeyRef:
         name: egov-pg-service
-        key: paygov-merchant-secret-key
+        key: paygovmerchantsecretkey
   - name: PAYGOV_MERCHANT_USER
     valueFrom:
       secretKeyRef:
         name: egov-pg-service
-        key: paygov-merchant-user
+        key: paygovmerchantuser
   - name: PAYGOV_MERCHANT_PWD
     valueFrom:
       secretKeyRef:
         name: egov-pg-service
-        key: paygov-merchant-pwd
+        key: paygovmerchantpwd
   {{- end }}
   - name: JAVA_OPTS
     value: {{ index .Values "heap" | quote }}
