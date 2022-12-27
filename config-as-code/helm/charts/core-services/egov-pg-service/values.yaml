@@ -190,35 +190,17 @@ env: |
   - name: PAYGOV_DATEFORMAT
     value: "dd-MM-yyyy HH:mm:SSS"
   - name: PAYGOV_GATEWAY_URL
-    valueFrom:
-      configMapKeyRef:
-        name: egov-pg-service
-        key: paygovgatewayurl
+    value: {{ index .Values "paygovgatewayurl" | quote }}
   - name: PAYGOV_REDIRECT_URL
-    valueFrom:
-      configMapKeyRef:
-        name: egov-pg-service
-        key: paygovredirecturl
+    value: {{ index .Values "paygovredirecturl" | quote }}
   - name: PAYGOV_GATEWAY_STATUS_URL
-    valueFrom:
-      configMapKeyRef:
-        name: egov-pg-service
-        key: paygovgatewaystatusurl
+    value: {{ index .Values "paygovgatewaystatusurl" | quote }}
   - name: PAYGOV_GATEWAY_STATUS_URL_WITHIP
-    valueFrom:
-      configMapKeyRef:
-        name: egov-pg-service
-        key: paygovgatewaystatusurlwithip
+    value: {{ index .Values "paygovgatewaystatusurlwithip" | quote }}
   - name: PAYGOV_CITIZEN_REDIRECT_DOMAIN_NAME
-    valueFrom:
-      configMapKeyRef:
-        name: egov-pg-service
-        key: paygovcitizenredirectdomainname
+    value: {{ index .Values "paygovcitizenredirectdomainname" | quote }}
   - name: EGOV_DEFAULT_CITIZEN_URL
-    valueFrom:
-      configMapKeyRef:
-        name: egov-pg-service
-        key: egovdefaultcitizenurl
+    value: {{ index .Values "egovdefaultcitizenurl" | quote }}
   - name: PAYGOV_MERCHANT_ID
     valueFrom:
       secretKeyRef:
