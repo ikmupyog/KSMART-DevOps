@@ -210,7 +210,7 @@ env: |
     valueFrom:
       secretKeyRef:
         name: egov-pg-service
-        key: paygovmerchantsecretkey
+        key: paygovmerchantsecret
   - name: PAYGOV_MERCHANT_USER
     valueFrom:
       secretKeyRef:
