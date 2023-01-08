@@ -21,6 +21,14 @@ healthChecks:
   livenessProbePath: "/digit-ui/"
   readinessProbePath: "/digit-ui/"
 
+resources: |
+  requests:
+    memory: 256Mi
+    cpu: 300m
+  limits:
+    memory: 512Mi
+    cpu: 700m
+
 namespace: egov    
 extraVolumes: |
   - name: js-injection

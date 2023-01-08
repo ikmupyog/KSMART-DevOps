@@ -15,6 +15,14 @@ tracing-enabled: true
 username: "egov-testing@egovernments.org"
 heap: "-Xmx192m -Xms192m"
 
+resources: |
+  requests:
+    memory: 512Mi
+    cpu: 300m
+  limits:
+    memory: 784Mi
+    cpu: 700m
+
 # Additional Container Envs
 env: |
   - name: KAFKA_TOPICS_NOTIFICATION_MAIL_NAME

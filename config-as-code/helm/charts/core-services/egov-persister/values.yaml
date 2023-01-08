@@ -24,6 +24,14 @@ persist-yml-path: "file:///work-dir/configs/egov-persister/apportion-persister.y
 heap: "-Xmx192m -Xms192m"
 java-args: ""
 
+resources: |
+  requests:
+    memory: 512Mi
+    cpu: 300m
+  limits:
+    memory: 784Mi
+    cpu: 700m
+    
 # Additional Container Envs
 env: |
   - name: EGOV_PERSIST_YML_REPO_PATH
