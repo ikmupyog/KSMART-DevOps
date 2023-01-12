@@ -87,6 +87,13 @@ env: |
       configMapKeyRef:
         name: egov-service-host
         key: egov-pdf
+  - name: EGOV_WORKFLOW_HOST
+    valueFrom:
+      configMapKeyRef:
+        name: egov-service-host
+        key: egov-workflow-v2
+  - name: EGOV_WORKFLOW_PATH
+    value: "egov-workflow-v2/egov-wf/process/_transition"
   - name: EGOV_COLLECTION_SERVICE_HOST
     valueFrom:
       configMapKeyRef:
