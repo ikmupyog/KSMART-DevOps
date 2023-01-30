@@ -13,7 +13,7 @@ ingress:
 initContainers:
   dbMigration:
     enabled: true
-    schemaTable: "birth_services_schema"
+    schemaTable: "marriage_services_schema"
     image:
       repository: "marriage-services-db"
 
@@ -44,17 +44,17 @@ resources: |
 # Additional Container Envs
 env: |
   - name: SERVER_CONTEXTPATH
-    value: /birth-services
+    value: /marriage-services
   - name: SPRING_KAFKA_CONSUMER_GROUP_ID
-    value: birth-services
+    value: marriage-services
   - name: SPRING_KAFKA_PRODUCER_KEY_SERIALIZER
     value: org.apache.kafka.common.serialization.StringSerializer
   - name: SPRING_KAFKA_PRODUCER_VALUE_SERIALIZER
     value: org.springframework.kafka.support.serializer.JsonSerializer
   - name: KAFKA_TOPICS_SAVE_SERVICE
-    value: save-birth-topic
+    value: save-marrige-topic
   - name: KAFKA_TOPICS_UPDATE_SERVICE
-    value: update-birth-topic
+    value: update-marriage-topic
   - name: EGOV_MDMS_HOST
     valueFrom:
       configMapKeyRef:
