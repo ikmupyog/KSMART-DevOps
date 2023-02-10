@@ -174,9 +174,9 @@ egov-pg-service:
   axis: true
   paygov: true
   ##paygov.gateway.url=https://pilot.surepay.ndml.in/SurePayPayment/sp/processRequest
-  paygovgatewayurl: https://pilot.surepay.ndml.in/SurePayPayment/sp/processRequest
+  paygovgatewayurl: https://surepay.ndml.in/SurePayPayment/sp/processRequest
   paygovredirecturl: https://ksmart.lsgkerala.gov.in/pg-service/transaction/v1/_redirect
-  paygovgatewaystatusurl: https://pilot.surepay.ndml.in/SurePayPayment/v1/queryPaymentStatus
+  paygovgatewaystatusurl: https://surepay.ndml.in/SurePayPayment/v1/queryPaymentStatus
   paygovgatewaystatusurlwithip: https://121.242.223.249/SurePayPayment/v1/queryPaymentStatus
   paygovcitizenredirectdomainname: https://ksmart.lsgkerala.gov.in/
   ## Citizen url
