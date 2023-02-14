@@ -23,7 +23,7 @@ cluster-configs:
                 egov-state-level-tenant-id: kl
                 s3-assets-bucket: ikm-assets-bucket
                 erp-db-url: jdbc:postgresql://ikm-first-eks-db.c865b3gqkoui.ap-south-1.rds.amazonaws.com:5432/ikmeksdb
-                bpa-db-url: jdbc:postgresql://ikm-first-eks-db.c865b3gqkoui.ap-south-1.rds.amazonaws.com:5432/ikmeksdb
+                
 
                  ## Do not Change
                 es-host: "elasticsearch-data-v1.es-cluster"
