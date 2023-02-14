@@ -107,7 +107,7 @@ cluster-configs:
                 noc-services: "http://noc-services.egov:8080/"
                 land-services: "http://land-services.egov:8080/"
                 egov-pg-service: http://egov-pg-service:8080/
-                egov-edcr: http://egov-edcr.egov:8080/
+                
 
 egov-filestore:
   volume: /opt/eGov/filestore
