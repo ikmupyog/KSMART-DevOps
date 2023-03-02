@@ -106,7 +106,8 @@ cluster-configs:
                 firenoc-calculator: "http://firenoc-calculator:8080/"
                 noc-services: "http://noc-services.egov:8080/"
                 land-services: "http://land-services.egov:8080/"
-                egov-pg-service: http://egov-pg-service:8080/
+                egov-pg-service: "http://egov-pg-service:8080/"
+                kssm-snehapoorvam: "http://kssm-snehapoorvam:8080/"
 
 egov-filestore:
   volume: /opt/eGov/filestore
