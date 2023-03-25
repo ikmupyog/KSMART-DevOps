@@ -73,26 +73,6 @@ env: |
       secretKeyRef:  
         name: egov-edcr-notification
         key: smssenderpassword     
-  - name: pnb-mid
-    valueFrom:
-      secretKeyRef:  
-        name: egov-edcr-bank-gateway
-        key: pnbmid
-  - name: pnb-encryption-key
-    valueFrom:
-      secretKeyRef:  
-        name: egov-edcr-bank-gateway
-        key: pnbencryptionkey
-  - name: hdfc-key
-    valueFrom:
-      secretKeyRef:  
-        name: egov-edcr-bank-gateway
-        key: hdfckey
-  - name: hdfc-salt
-    valueFrom:
-      secretKeyRef:  
-        name: egov-edcr-bank-gateway
-        key: hdfcsalt
   - name: min-pool-size
     value: {{ index .Values "min-pool-connection" | quote }}
   - name: max-pool-size
