@@ -109,6 +109,8 @@ env: |
     value: updatepde-tl-tradelicense
   - name: PERSISTER_UPDATEWFPDE_TRADELICENSE_TOPIC
     value: updatepde-tl-workflow
+  - name: PERSISTER_SAVECORRECTION_TRADELICENSE_TOPIC
+    value: savecorrection-tl-tradelicense
   - name: SPRING_KAFKA_PRODUCER_KEY_SERIALIZER
     value: org.apache.kafka.common.serialization.StringSerializer
   - name: SPRING_KAFKA_PRODUCER_VALUE_SERIALIZER
