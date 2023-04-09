@@ -285,7 +285,7 @@ egov-data-uploader:
       branch: "DEV" ### Branch need to be changed as per your env
 
 egov-searcher:
-  search-yaml-path: "file:///work-dir/ksmart-configs/configs/egov-searcher/rainmaker-pgr-v2.yml,file:///work-dir/ksmart-configs/configs/egov-searcher/weekly-impact-emailer-searcher.yml,file:///work-dir/ksmart-configs/configs/egov-searcher/PTDemandBasedSearcher.yml,file:///work-dir/ksmart-configs/configs/egov-searcher/bill-genie.yml,file:///work-dir/ksmart-configs/configs/egov-searcher/rainmaker-tl.yml,file:///work-dir/ksmart-configs/configs/egov-searcher/localitySearcher.yml"
+  search-yaml-path: "file:///work-dir/ksmart-configs/configs/egov-searcher/rainmaker-pgr-v2.yml,file:///work-dir/ksmart-configs/configs/egov-searcher/weekly-impact-emailer-searcher.yml,file:///work-dir/ksmart-configs/configs/egov-searcher/PTDemandBasedSearcher.yml,file:///work-dir/ksmart-configs/configs/egov-searcher/bill-genie.yml,file:///work-dir/ksmart-configs/configs/egov-searcher/rainmaker-tl.yml,file:///work-dir/ksmart-configs/configs/egov-searcher/localitySearcher.yml,file:///work-dir/ksmart-configs/configs/egov-searcher/inboxBRSearch.yml,file:///work-dir/ksmart-configs/configs/egov-searcher/inboxDRSearch.yml"
   initContainers:
     gitSync:
       repo: "git@github.com:ikmupyog/ksmart-configs"  ### Change this to Your Config Repo
