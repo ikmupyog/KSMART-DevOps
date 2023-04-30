@@ -185,9 +185,9 @@ chatbot:
   kafka-consumer-poll-ms: 10
   kafka-producer-linger-ms: 5
 
-  contact-card-whatsapp-number: "+918744960111" 
-  contact-card-whatsapp-name: "mSeva Punjab"
-  valuefirst-whatsapp-number: "918744960111"
+  contact-card-whatsapp-number: "+919447165401" 
+  contact-card-whatsapp-name: "KSMART"
+  valuefirst-whatsapp-number: "919447165401"
   valuefirst-notification-assigned-templateid: "194781"
   valuefirst-notification-resolved-templateid: "194783"
   valuefirst-notification-rejected-templateid: "194785"
