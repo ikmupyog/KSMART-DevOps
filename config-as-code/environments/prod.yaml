@@ -100,6 +100,7 @@ cluster-configs:
                 birth-death-services: "http://birth-death-services.egov:8080/"
                 birth-services: "http://birth-services.egov:8080/"
                 death-services: "http://death-services.egov:8080/"
+                marriage-services: "http://marriage-services.egov:8080/"
                 egov-pdf: "http://egov-pdf.egov:8080/"
                 egov-filemgmnt: "http://egov-filemgmnt.egov:8080/"
                 egov-pg-service: http://egov-pg-service:8080/
