@@ -36,6 +36,8 @@ tl-payment-topic-name: "egov.collection.payment-create"
 tl-license-num-format: "PB-TL-[cy:yyyy-MM-dd]-[SEQ_EG_PT_LN]"
 tl-userevents-pay-link: "citizen/otpLogin?mobileNo=$mobile&redirectTo=egov-common/pay?consumerCode=$applicationNo&tenantId=$tenantId&businessService=$businessService"
 tl-msg-pay-link: "citizen/withoutAuth/egov-common/pay?consumerCode=$consumercode&tenantId=$tenantId&businessService=$businessservice"
+ptax.building.search.url: "https://demo.lsgkerala.gov.in/api/Sanchaya/sanchaya4ksmart/Service.asmx"
+ptax.building.search.endpoint: "/getDoorNoDetails"
 
 
 resources: |
