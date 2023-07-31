@@ -1,7 +1,7 @@
 
 name: kafka-v2
 namespace: kafka-cluster
-replicas: 1
+replicas: 3
 zookeeperHosts: "zookeeper-v2.zookeeper-cluster:2181/kafka-v2"
 
 image:
@@ -36,7 +36,7 @@ autoPurgePurgeInterval: 24
 
 heapOptions: "-Xms704M -Xmx704M"
 memory_limits: 2408Mi
-logDirs: "/opt/kafka-data/logs"
+# logDirs: "/opt/kafka-data/logs"
 listenerSecurity: "PLAINTEXT:PLAINTEXT,EXTERNAL:PLAINTEXT"
 lingerMs: "250"
 numberPartitions: "3"
