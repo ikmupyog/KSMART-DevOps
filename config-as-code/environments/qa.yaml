@@ -449,10 +449,10 @@ kafka-v2:
   heapOptions: "-Xms704M -Xmx704M"
   memory_limits: 2408Mi
   lingerMs: "250"
-  numberPartitions: "1"
-  replicationFactor: "1"
+  numberPartitions: "3"
+  replicationFactor: "2"
   minInsyncReplicas: "1"
-  offsetsReplicationFactor: "1"
+  offsetsReplicationFactor: "3"
 
 ## kafka-v2 Azure <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 #kafka-v2:
