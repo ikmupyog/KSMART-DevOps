@@ -35,7 +35,7 @@ autoPurgePurgeInterval: 24
 
 
 heapOptions: "-Xms704M -Xmx704M"
-memory_limits: 2408Mi
+memory_limits: 3408Mi
 logDirs: "/opt/kafka-data/logs"
 listenerSecurity: "PLAINTEXT:PLAINTEXT,EXTERNAL:PLAINTEXT"
 lingerMs: "250"
